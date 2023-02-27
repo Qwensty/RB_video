@@ -14,6 +14,18 @@ class Product:
         if len(__name) > 10:
             raise NameError("Длина названия товара не должна превышать 10 символов!")
 
+    @property
+    def item_name(self):
+        return self.__item_name
+
+    @item_name.setter
+    def item_name(self, value) -> str:
+        if len(value) > 10:
+            print("Exception: наименование товара превышает 10 символов")
+        else:
+            self.__item_name = value
+
+
     def __repr__(self) -> str:
         """ Метод возвращает представление класса. Выводит все атрибуты объекта"""
         text = ""
