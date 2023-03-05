@@ -33,6 +33,9 @@ class Product:
             text += dic + "=" + str(self.__dict__[dic]) + ", "
         return f"Product({text[:-2]})"
 
+    def __str__(self):
+        return self.__item_name
+
     def calculate_amount(self):
         """Метод возвращает общую стоимость всех товаров в экземпляре """
         return self.price * self.quantity
