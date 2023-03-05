@@ -34,7 +34,7 @@ class Product:
         return f"Product({text[:-2]})"
 
     def __str__(self):
-        return self.__item_name
+        return f"Товар: {self.__name}, цена: {self.price}, количество: {self.quantity}"
 
     def calculate_amount(self):
         """Метод возвращает общую стоимость всех товаров в экземпляре """

@@ -42,3 +42,7 @@ def test_load_from_csv(patf_csv_file) -> list:
     item = Product("name", 50, 2)
     assert len(item.load_from_csv(patf_csv_file)) == 5
     assert isinstance(item.load_from_csv(patf_csv_file)[0], Product)
+
+def test__str__():
+    assert str(Product("Ноутбук", 20000, 5)) == "Товар: Ноутбук, цена: 20000, количество: 5"
+    assert str(Product("Смартфон", 100, 1)) == "Товар: Смартфон, цена: 100, количество: 1"
