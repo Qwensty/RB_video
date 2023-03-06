@@ -27,7 +27,7 @@ class Product:
 
 
     def __repr__(self) -> str:
-        """ Метод возвращает представление класса. Выводит все атрибуты объекта"""
+
         text = ""
         for dic in self.__dict__:
             text += dic + "=" + str(self.__dict__[dic]) + ", "
@@ -37,11 +37,11 @@ class Product:
         return f"Товар: {self.__name}, цена: {self.price}, количество: {self.quantity}"
 
     def calculate_amount(self):
-        """Метод возвращает общую стоимость всех товаров в экземпляре """
+
         return self.price * self.quantity
 
     def apply_discount(self):
-        """Метод возвращает цену, рассчитанную с учетом уровня скидки pay_rate"""
+
         self.price = self.price * self.pay_rate
         return self.price
 
@@ -57,7 +57,43 @@ class Product:
 
     @staticmethod
     def is_integer(number) -> bool:
-        """метод возвращает True- если переданное число number 
-        имеет тип int, иначе - False"""
         return ((type(number) == int) or (type(number) == float)) \
             and (round(number) == number)
+
+class Phone(Product):
+    def __init__(self, name="", price=0.0, quantity=0, number_of_sim=1):
+        Product.__init__(self, name, price, quantity)
+        self._number_of_sim = number_of_sim
+        self.name = name
+        if number_of_sim == 0:
+            raise ValueError("Количество физических SIM-карт должно быть целым числом больше нуля.")
+
+
+    @staticmethod
+    def add_item(data1, data2):
+        if (isinstance(data1, Phone) or isinstance(data1, Product)) and \
+            (isinstance(data2, Phone) or isinstance(data2, Product)):
+            return data1.quantity + data2.quantity
+        else:
+            raise (ValueError, "Объекты должны быть типа Phone или Goods")
+
+    def __repr__(self) -> str:
+        text = "Phone("
+        for dic in self.__dict__:
+            text += f'{dic}={self.__dict__[dic]}, '
+        return f"{text[:-2]})"
+
+    def __str__(self) -> str:
+        return f"Телефон: {self.name}, цена: {self.price}, \
+количество: {self.quantity}, количество сим-карт: {self._number_of_sim}"
+
+    @property
+    def number_of_sim(self):
+        return self._number_of_sim
+
+    @number_of_sim.setter
+    def number_of_sim(self, number: int):
+        if isinstance(number, int) and number > 0:
+            self._number_of_sim = number
+        else:
+            raise ValueError("Количество физических SIM-карт должно быть целым числом больше нуля.")
