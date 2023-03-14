@@ -1,6 +1,6 @@
 from utils.product import Product, Phone
 from data.config import path_csv
-
+from utils.keyboard import KeyBoard
 
 def main():
   #  try:
@@ -24,25 +24,40 @@ def main():
  #   item2.__name = "СуперСмартфон"
 
 
-  phone1 = Phone("iPhone 14", 120_000, 5, 1)
-  print(phone1)
-  print(repr(phone1))
+ # phone1 = Phone("iPhone 14", 120_000, 5, 1)
+ # print(phone1)
+ # print(repr(phone1))
+#
+ # print(phone1.number_of_sim)
+#
+ # try:
+ #     phone1.number_of_sim = 0
+ # except Exception as text:
+ #     print(text)
+#
+ # try:
+ #     phone3 = Phone("gPhone 2", 5_000, 5, 0)
+ # except Exception as text:
+ #     print(text)
+#
+ # phone2 = Phone("mPhone 22", 30_000, 2, 1)
+ # print(phone1.add_item(phone1, phone2))
 
-  print(phone1.number_of_sim)
+    kb = KeyBoard('Dark Project KD87A', 9600, 5)
+    print(kb)
+    print(kb.language)
+    kb.change_lang()
+    print(kb.language)
+    kb.change_lang()
+    print(kb.language)
+    try:
+        kb.language = 'CH'
+    except AttributeError as error:
+        print(error)
 
-  try:
-      phone1.number_of_sim = 0
-  except Exception as text:
-      print(text)
 
-  try:
-      phone3 = Phone("gPhone 2", 5_000, 5, 0)
-  except Exception as text:
-      print(text)
-
-  phone2 = Phone("mPhone 22", 30_000, 2, 1)
-  print(phone1.add_item(phone1, phone2))
-
+if __name__ == "__main__":
+    main()
 
 if __name__ == "__main__":
     main()

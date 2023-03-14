@@ -1,6 +1,7 @@
 import pytest
 import os
 from utils.product import Product, Phone
+from utils.keyboard import KeyBoard, Mixin
 
 
 @pytest.fixture()
@@ -20,3 +21,13 @@ def patf_csv_file():
 @pytest.fixture()
 def phone_i():
     return Phone("I am phone", 15000, 5, 4)
+
+
+@pytest.fixture()
+def keyboard_test():
+    return KeyBoard("Tech", 1500, 5)
+
+
+@pytest.fixture()
+def mixin_test():
+    return Mixin('EN')
