@@ -15,7 +15,7 @@ def test__init__():
 
 
 def test__repr__(phone_i) -> str:
-    assert repr(phone_i) == "Phone(_Goods__name=I am phone, price=15000, quantity=5, _number_of_sim=4, name=I am phone)"
+    assert repr(phone_i) == "Phone(_Product__name=I am phone, price=15000, quantity=5, _number_of_sim=4, name=I am phone)"
 
 
 def test__str__(phone_i) -> str:

@@ -24,7 +24,7 @@ def test_mixin_change_lang():
 
 def test_keyboard_init(keyboard_test):
     keyboard = KeyBoard("Tech", 1500, 5)
-    assert keyboard._Goods__name == keyboard_test._Goods__name
+    assert keyboard._Product__name == keyboard_test._Product__name
     assert keyboard.price == keyboard_test.price
     assert keyboard.quantity == keyboard_test.quantity
     assert keyboard.language == keyboard_test.language
@@ -40,7 +40,8 @@ def test_keyboard_change_lang():
 
 
 def test_keyboard__repr__(keyboard_test):
-    assert repr(keyboard_test) == "KeyBoard(_Goods__name="", price=1500, quantity=5, _language=EN, name=Tech)"
+    assert repr(keyboard_test) == \
+        "KeyBoard(_Product__name="", price=1500, quantity=5, _language=EN, _KeyBoard__name=Tech)"
 
 
 def test_keyboard__str__(keyboard_test):
