@@ -31,3 +31,7 @@ def keyboard_test():
 @pytest.fixture()
 def mixin_test():
     return Mixin('EN')
+
+@pytest.fixture()
+def wrong_csv_file():
+    return os.sep.join(["data", "items_err.csv"])
